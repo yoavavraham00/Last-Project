@@ -13,7 +13,6 @@ export const connect = async () => {
 
       const connectionString = `mongodb://${user}:${password}@${host}:${port}/${database}`;  // create the connection string
 
-
       let users = []
       const initializeUsers = async () => {
         const count = await User.countDocuments();
