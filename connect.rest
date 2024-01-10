@@ -1,0 +1,303 @@
+### Post a user for Yoav
+POST http://localhost:8686/api/v1/users
+Content-Type: application/json
+
+{
+  "name": {
+    "first": "yoav",
+    "middle": "abcd",
+    "last": "dubrovin"
+  },
+  "phone": "0512345567",
+  "email": "yoav@email.com",
+  "password": "Abc!123Abc",
+  "address": {
+    "state": "IL",
+    "country": "Israel",
+    "city": "Arad",
+    "street": "Shoham",
+    "houseNumber": 5,
+    "zip": 8920435
+  },
+  "isBusiness": true
+}
+
+### Post a user for Elvis
+POST http://localhost:8686/api/v1/users
+Content-Type: application/json
+
+{
+  "name": {
+    "first": "Eli",
+    "middle": "blabla",
+    "last": "vis"
+  },
+  "phone": "0512345567",
+  "email": "Eli@email.com",
+  "password": "Abc!123Abb",
+  "address": {
+    "state": "IL",
+    "country": "Israel",
+    "city": "Arad",
+    "street": "Shoham",
+    "houseNumber": 5,
+    "zip": 8920435
+  },
+  "isBusiness": true
+}
+
+### Post a user for Meni
+POST http://localhost:8686/api/v1/users
+Content-Type: application/json
+
+{
+  "name": {
+    "first": "Meni",
+    "middle": "Meni",
+    "last": "Mamtera"
+  },
+  "phone": "0512345568",
+  "email": "Meni@email.com",
+  "password": "Abc!123Abc",
+  "address": {
+    "state": "IL",
+    "country": "Israel",
+    "city": "Arad",
+    "street": "Shoham",
+    "houseNumber": 5,
+    "zip": 8920435
+  },
+  "isBusiness": true
+}
+
+
+### Login for Yoav
+POST http://localhost:8686/api/v1/users/login
+Content-Type: application/json
+
+{
+  "email": "yoav@email.com",
+  "password": "Abc!123Abc"
+}
+
+### Login for Meni
+POST http://localhost:8686/api/v1/users/login
+Content-Type: application/json
+
+{
+  "email": "Meni@email.com",
+  "password": "Abc!123Abc"
+}
+
+### Login for Eli
+POST http://localhost:8686/api/v1/users/login
+Content-Type: application/json
+
+{
+  "email": "Eli@email.com",
+  "password": "Abc!123Abb"
+}
+
+
+### get Yoav that is an Admin by id:
+GET http://localhost:8686/api/v1/users/655f9fe15c9e4040b13e9344
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlvYXZAZW1haWwuY29tIiwiaWQiOiI2NTVmOWZlMTVjOWU0MDQwYjEzZTkzNDQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3MDA5NDM0NDF9.eY677KlPKEYujaB7qCFJ4A6ByNj_CkO7162UAHhE8hw
+
+
+### get Meni by id:
+GET http://localhost:8686/api/v1/users/655fa0ae5c9e4040b13e9349
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lbmlAZW1haWwuY29tIiwiaWQiOiI2NTVmYTBhZTVjOWU0MDQwYjEzZTkzNDkiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzAwOTQzODM5fQ.YaC4wKS8R5q2SEHcYbEScw-rgJA__soZlV6iFj0OWec
+
+### get Eli by id:
+GET http://localhost:8686/api/v1/users/655fa0e55c9e4040b13e934e
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkVsaUBlbWFpbC5jb20iLCJpZCI6IjY1NWZhMGU1NWM5ZTQwNDBiMTNlOTM0ZSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MDA5NDQwNjB9.r_Q8vo_2iQAsRlgWTo_V4J-4K5nB7KbcrYukhSgsu3Y
+
+
+### Get all the users:
+GET http://localhost:8686/api/v1/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlvYXZAZW1haWwuY29tIiwiaWQiOiI2NTVmOWZlMTVjOWU0MDQwYjEzZTkzNDQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3MDA5NDM0NDF9.eY677KlPKEYujaB7qCFJ4A6ByNj_CkO7162UAHhE8hw
+
+
+### Edit a user by id:
+PUT http://localhost:8686/api/v1/users/655fa0ae5c9e4040b13e9349
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lbmlAZW1haWwuY29tIiwiaWQiOiI2NTVmYTBhZTVjOWU0MDQwYjEzZTkzNDkiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzAzNDU0Mjk1fQ.zWJXbfEyLvqEbaqPX_wMhE5VvSx3LQfILAWRVnILF9c
+
+{
+    "name": {
+    "first": "Meni",
+    "middle": "Meni",
+    "last": "Mamtera"
+  },
+  "phone": "0512345568",
+  "email": "Meni@email.com",
+  "password": "Abc!123Abc",
+  "isBusiness": false,
+  "address": {
+    "state": "IL",
+    "country": "Israel",
+    "city": "Arad",
+    "street": "Shoham",
+    "houseNumber": 5,
+    "zip": 8920435
+  },
+}
+
+
+### change user "isBusiness" by id:
+PATCH http://localhost:8686/api/v1/users/655fa0ae5c9e4040b13e9349
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lbmlAZW1haWwuY29tIiwiaWQiOiI2NTVmYTBhZTVjOWU0MDQwYjEzZTkzNDkiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzAzNDUyMzc2fQ.Bz2wkU5-ABTpUdB25dkT9y15cm7IEjJ-b9p8q7T7vw8
+
+{
+  "isBusiness": true,
+  }
+
+
+### Delete a user by id :
+DELETE http://localhost:8686/api/v1/users/655fa0fc5c9e4040b13e9358
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlvYXZAZW1haWwuY29tIiwiaWQiOiI2NTVmOWZlMTVjOWU0MDQwYjEzZTkzNDQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3MDA5NDM0NDF9.eY677KlPKEYujaB7qCFJ4A6ByNj_CkO7162UAHhE8hw
+
+
+
+### get all the cards:
+GET http://localhost:8686/api/v1/cards
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlvYXZAZW1haWwuY29tIiwiaWQiOiI2NTVmOWZlMTVjOWU0MDQwYjEzZTkzNDQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3MDA5NDM0NDF9.eY677KlPKEYujaB7qCFJ4A6ByNj_CkO7162UAHhE8hw
+
+
+### get only the user cards :
+GET http://localhost:8686/api/v1/cards/my-cards
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlvYXZAZW1haWwuY29tIiwiaWQiOiI2NTVmOWZlMTVjOWU0MDQwYjEzZTkzNDQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3MDA5NDM0NDF9.eY677KlPKEYujaB7qCFJ4A6ByNj_CkO7162UAHhE8hw
+
+
+### Get all cards by id :
+GET http://localhost:8686/api/v1/cards
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkVsaUBlbWFpbC5jb20iLCJpZCI6IjY1NWZhMGU1NWM5ZTQwNDBiMTNlOTM0ZSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MDA5NDQwNjB9.r_Q8vo_2iQAsRlgWTo_V4J-4K5nB7KbcrYukhSgsu3Y
+
+
+### post a card for Yoav:
+ POST http://localhost:8686/api/v1/cards
+Content-Type: application/json 
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlvYXZAZW1haWwuY29tIiwiaWQiOiI2NTljMzgzODZiY2FhYTkxMTkyMTNhZjUiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3MDQ3MzcyNTd9.T3Tb_b7xvj_eDZoU8Fb4SIIIayjENDeXDoXY1ClHhXk
+
+{
+  "title": "Yoav card",
+  "subtitle": "this is subtitle",
+  "description": "this is a card for yoav",
+  "phone": "0512345567",
+  "email": "yoav@gmail.com",
+  "web": "https://www.test.co.il",
+  "image": {
+    "url": "https://picsum.photos/200/",
+    "alt": "yoav image"
+  },
+  "address": {
+    "country": "israel",
+    "city": "arad",
+    "street": "shoham",
+    "houseNumber": 5,
+    "zip": 8920435
+  }
+}
+
+### post a card for Meni:
+ POST http://localhost:8686/api/v1/cards
+Content-Type: application/json 
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lbmlAZW1haWwuY29tIiwiaWQiOiI2NTVmYTBhZTVjOWU0MDQwYjEzZTkzNDkiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzAwOTQzODM5fQ.YaC4wKS8R5q2SEHcYbEScw-rgJA__soZlV6iFj0OWec
+
+{
+  "title": "Meni card",
+  "subtitle": "this is subtitle",
+  "description": "this is a card for meni",
+  "phone": "053644567",
+  "email": "Meni@gmail.com",
+  "web": "https://www.google.co.il",
+  "image": {
+    "url": "https://picsum.photos/200/",
+    "alt": "meni image"
+  },
+  "address": {
+    "country": "israel",
+    "city": "arad",
+    "street": "salomon",
+    "houseNumber": 7,
+    "zip": 8920435
+  }
+}
+
+### post a card for Eli:
+ POST http://localhost:8686/api/v1/cards
+Content-Type: application/json 
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkVsaUBlbWFpbC5jb20iLCJpZCI6IjY1NWZhMGU1NWM5ZTQwNDBiMTNlOTM0ZSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MDA5NDQwNjB9.r_Q8vo_2iQAsRlgWTo_V4J-4K5nB7KbcrYukhSgsu3Y
+
+{
+  "title": "Eli card",
+  "subtitle": "this is subtitle",
+  "description": "this is a card for eli",
+  "phone": "0545223456",
+  "email": "Eli@gmail.com",
+  "web": "https://www.google.co.il",
+  "image": {
+    "url": "https://picsum.photos/200/",
+    "alt": "Eli image"
+  },
+  "address": {
+    "country": "israel",
+    "city": "herzelia",
+    "street": "ben gurion",
+    "houseNumber": 9,
+    "zip": 8920436
+  }
+}
+
+
+### Edit a card by id:
+PUT http://localhost:8686/api/v1/cards/6570e427dd36aa29e65d94d3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlvYXZAZW1haWwuY29tIiwiaWQiOiI2NTVmOWZlMTVjOWU0MDQwYjEzZTkzNDQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3MDMxMDY2MDB9.iT8XQxUTH7DrGKOU11i2lYQFSNIK_9qZ9caCuUlwoZg
+Content-Type: application/json
+
+{
+  "title": "Updated Title",
+  "subtitle": "Updated Subtitle",
+  "description": "Updated Description",
+  "phone": "0512345567",
+  "email": "mmm@gmail.com",
+  "web": "https://www.test.co.il",
+  "image": {
+    "url": "https://picsum.photos/200/",
+    "alt": "Updated image"
+  },
+  "address": {
+    "country": "israel",
+    "city": "herzelia",
+    "street": "crapel",
+    "houseNumber": 22,
+    "zip": 8920427
+  }
+}
+
+### Edd likes to the card by user id:
+PATCH  http://localhost:8686/api/v1/cards/6589d662ceaf06653a01a7ae
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lbmlAZW1haWwuY29tIiwiaWQiOiI2NTVmYTBhZTVjOWU0MDQwYjEzZTkzNDkiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzAwOTQzODM5fQ.YaC4wKS8R5q2SEHcYbEScw-rgJA__soZlV6iFj0OWec
+
+{
+ "likes": ["655f9fe15c9e4040b13e9344"]
+}
+
+### Edd likes to the card by user id:
+PATCH  http://localhost:8686/api/v1/cards/6589d662ceaf06653a01a7ae
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkVsaUBlbWFpbC5jb20iLCJpZCI6IjY1NWZhMGU1NWM5ZTQwNDBiMTNlOTM0ZSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MDA5NDQwNjB9.r_Q8vo_2iQAsRlgWTo_V4J-4K5nB7KbcrYukhSgsu3Y
+
+{
+ "likes": ["655fa0e55c9e4040b13e934e"]
+}
+
+### Edd likes to the card by user id:
+PATCH  http://localhost:8686/api/v1/cards/6589d662ceaf06653a01a7ae
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lbmlAZW1haWwuY29tIiwiaWQiOiI2NTVmYTBhZTVjOWU0MDQwYjEzZTkzNDkiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzAwOTQzODM5fQ.YaC4wKS8R5q2SEHcYbEScw-rgJA__soZlV6iFj0OWec
+
+{
+ "likes": ["655fa0ae5c9e4040b13e9349"]
+}
+
+### Delete a card by id:
+DELETE http://localhost:8686/api/v1/cards/658098a99712d635e87d0604
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlvYXZAZW1haWwuY29tIiwiaWQiOiI2NTVmOWZlMTVjOWU0MDQwYjEzZTkzNDQiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3MDA5NDM0NDF9.eY677KlPKEYujaB7qCFJ4A6ByNj_CkO7162UAHhE8hw

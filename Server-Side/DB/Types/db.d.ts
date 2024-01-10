@@ -4,7 +4,7 @@ import { type } from "os";
 
 export type IRole = {
   name: string;
-};
+}; //Roles: "admin"|"user"|"moderator"|"VIP"|"bussiness"
 
 export type IName = {
   first: string;
