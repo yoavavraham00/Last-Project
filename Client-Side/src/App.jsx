@@ -1,10 +1,10 @@
 import React from 'react';
 import {Route, Routes, } from 'react-router-dom';
-import Card from '../Routes/Card';
-import Cards from '../Routes/Cards';
-import Login from '../Routes/Login';
-import NotFound from '../Routes/NotFound';
-import Register from '../Routes/Register';
+import  Cards  from '../Routes/Cards';
+import  Card  from '../Routes/Card';
+import  Register  from '../Routes/Register';
+import  Login  from '../Routes/Login';
+import  NotFound  from '../Routes/NotFound';
 
 
 
