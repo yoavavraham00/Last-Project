@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import  Card  from '../DB/Model/card.model';
+import { ICard } from '../DB/Types/models.d'; // Import the Icard type
 
 const ProductDisplay: React.FC = () => {
-    const [cards, setCards] = useState<typeof Card[]>([]);
+    const [cards, setCards] = useState<ICard[]>([]); // Fix the type name
 
     useEffect(() => {
         axios.get('/api/v1/cards')

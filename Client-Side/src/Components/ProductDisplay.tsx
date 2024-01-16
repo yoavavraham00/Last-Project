@@ -1,20 +1,22 @@
-import React from 'react';
-
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import CardComponent from './CardComponent';
+import { ICard } from '../DB/Types/models.d';
 
 const ProductDisplay: React.FC = () => {
+    const [cards, setCards] = useState<ICard[]>([]);
+
+    useEffect(() => {
+        axios.get('/api/v1/cards')
+            .then(response => setCards(response.data))
+            .catch(error => console.error('Error fetching cards:', error));
+    }, []);
+
     return (
         <section className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 p-5">
-            {/* Replace with actual product components/cards */}
-            <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white p-4">
-                <img className="w-full" src="/path_to_product.jpg" alt="Product" />
-                <div className="px-6 py-4">
-                    <div className="font-bold text-xl mb-2">Product Name</div>
-                    <p className="text-gray-700 text-base">
-                        Product Description
-                    </p>
-                </div>
-            </div>
-            {/* Repeat the above div for each product */}
+            {cards.map(card => (
+                <CardComponent key={card._id.toString()} card={card} />
+            ))}
         </section>
     );
 };

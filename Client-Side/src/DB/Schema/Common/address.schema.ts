@@ -1,5 +1,5 @@
 import { Schema } from 'mongoose';
-import { IAddress } from '../../Types/models';
+import { IAddress } from '../../Types/models.d';
 
 export const addressSchema = new Schema<IAddress>({
     state: {type: String, required: false, maxlength: 25},

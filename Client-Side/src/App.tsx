@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, Routes, } from 'react-router-dom';
-import  Cards  from './Routes/Cards';
+// import './themed-bootstrap.scss';
 import  Card  from './Routes/Card';
 import  Register  from './Routes/Register';
 import  Login  from './Routes/Login';
@@ -11,6 +11,7 @@ import HeroSection from './Components/HeroSection';
 import ProductDisplay from './Components/ProductDisplay';
 
 
+
 function App() {
   return (
     <>
@@ -19,7 +20,7 @@ function App() {
         <Route path="/" element={
           <>
             <HeroSection />
-            <ProductDisplay />
+            <ProductDisplay />        
           </>
         } />
         <Route path="/cards/:id" element={<Card />} />

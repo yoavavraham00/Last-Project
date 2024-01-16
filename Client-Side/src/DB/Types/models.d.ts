@@ -51,7 +51,9 @@ export type ICardInput = {
 export type ICard = ICardInput & {
     bizNumber: number;
     likes?: string[];
+    _id: mongoose.Types.ObjectId;
     user_id: mongoose.Types.ObjectId;
+    card_id: mongoose.Types.ObjectId;
     createdAt: Date;
 }
 

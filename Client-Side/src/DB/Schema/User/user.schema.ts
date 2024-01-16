@@ -1,5 +1,5 @@
 import { Schema } from "mongoose";
-import { IUser } from "../../Types/models";
+import { IUser } from "../../Types/models.d";
 import { addressSchema } from "../Common/address.schema";
 import { nameSchema } from "../Common/name.schema";
 import { imageSchema } from "../Common/Image.schema";
