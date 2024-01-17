@@ -12,6 +12,16 @@
   
   .smoke {
     animation: smokeEffect 12s ease-in-out infinite alternate;
+    position: absolute;
+    z-index: 10
+    /* You will need to position each smoke element accordingly */
   }
+
+  @keyframes walkCycle {
+    0% { background-position: 0 0; }
+    100% { background-position: -800px 0; /* adjust based on sprite sheet */ }
+  }
+/*   
+
 
   

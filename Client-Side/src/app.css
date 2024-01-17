@@ -1,18 +1,48 @@
-.body {
-    background-image: url('./Pictures/club-background.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat:
-  no-repeat;
-  height: 100vh;
-  width: 100vw;
-  overflow-x: hidden; /* Prevents horizontal scrollbar */
-  }
-
-.background-image {
-  background-image: url('./Pictures/club-background.png'); 
-  background-size: cover;
-  background-position: center;
+.club-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-image: url('./Pictures/fireplace.png'), url('./Pictures/leather-chair.png'), url('./Pictures/persian-rug.png'); */
+  background-position: left bottom, right bottom, center bottom;
   background-repeat: no-repeat;
-  height: 100vh;
-  }
+  z-index: -1;
+}
+
+.wood-panel {
+  position: absolute;
+  top: 50%; /* Adjust as necessary */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; /* Adjust as necessary */
+  max-width: 1200px; /* Adjust as necessary */
+  height: auto;
+  background: url('../public/Pictures/large-board.png') no-repeat center center;
+  background-size: cover;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #38220f; /* Gives a subtle border to the panel */
+  z-index: 10; 
+}
+
+@keyframes smokeEffect {
+  0% { opacity: 0; transform: translateY(0) scale(1); }
+  100% { opacity: 1; transform: translateY(-20px) scale(1.5); }
+}
+
+.smoke {
+  animation: smokeEffect 12s ease-in-out infinite alternate;
+  position: absolute;
+  z-index: 10
+  /* You will need to position each smoke element accordingly */
+}
+
+@keyframes walkCycle {
+  0% { background-position: 0 0; }
+  100% { background-position: -800px 0;  }
+}
+ 
