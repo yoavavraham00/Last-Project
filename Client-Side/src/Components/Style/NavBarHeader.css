@@ -1,0 +1,37 @@
+.light-mode {
+    background-color: #f8f9fa; /* Light mode background color */
+    color: #d4a48e; /* Light mode text color */
+  }
+  
+  .dark-mode {
+    background-color: #343a40; /* Dark mode background color */
+    color: #557029; /* Dark mode text color */
+  }
+    
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 10px;
+    }
+    
+    .search-icon,
+    .dark-mode-icon {
+      display: flex;
+      align-items: center;
+    }
+    
+    .search-icon svg,
+    .dark-mode-icon svg {
+      font-size: 1.2rem;
+      margin:30;
+      cursor: pointer;
+    }
+  
+    .dark-mode-container {
+      margin-right: 20px; /* Adjust the margin as needed */
+    }
+  
+    .dark-mode-button {
+      margin: 12px 3px;
+    }

@@ -1,0 +1,179 @@
+.register-form {
+  font-family: Arial, sans-serif;
+  width: 750px;
+  margin: 0 auto;
+  padding: 10px;
+  border: 10px solid #333;
+  border-radius: 10px;
+  background-color: #a3ddd0;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  height: 85vh; /* Set the height to 100% of the viewport height */
+  overflow-y: auto; /* Add vertical scrollbar if content overflows */
+}
+
+.register-form-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.form-column .form-group {
+  position: relative;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: white;
+  margin-bottom: 15px;
+}
+
+.form-column .form-group input {
+  background-color: white;
+  border: 2px solid #ccc;
+  font-size: 12px;
+  width: 100%;
+  padding: 10px;
+}
+
+.form-column .form-group label {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  background-color: white;
+  padding: 0 5px;
+  font-size: 12px;
+}
+
+.form-column .form-group.valid {
+  border-color: #ccc;
+}
+
+.form-column .form-group.invalid {
+  border-color: red;
+}
+
+.form-column {
+  flex: 1;
+  margin-right: 10px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+.validation-message {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  display: block;
+  color: red;
+  font-size: 11px;
+  margin-top: 5px;
+}
+
+.optional-fields {
+  margin-top: 10px;
+}
+
+.optional-fields .form-table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+.optional-fields .form-row {
+  display: table-row;
+}
+
+.optional-fields .form-group {
+  display: table-cell;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.optional-fields .form-group label {
+  display: block;
+  font-weight: normal;
+}
+
+.optional-fields input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  font-size: 14px;
+}
+
+.sign-up-business-button {
+  background-color: #007bff;
+  color: #a7e295;
+  padding: 20px 15px;
+  border: none;
+  border-radius: 5px;
+  margin:  5px;
+  cursor: pointer;
+  
+}
+
+.checkbox{
+  margin: 8px;
+}
+
+.buttons-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.cancel-button,
+.refresh-button,
+.submit-button {
+  flex: 1;
+  padding: 10px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+}
+
+.cancel-button {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+}
+
+.cancel-button:hover {
+  background-color: #c9302c;
+}
+
+.refresh-button {
+  background-color: #5bc0de;
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.refresh-button i {
+  margin-right: 5px;
+}
+
+.refresh-button:hover {
+  background-color: #31b0d5;
+}
+
+.submit-button {
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  margin-top: 10px;
+}
+
+.submit-button:hover {
+  background-color: #449d44;
+}

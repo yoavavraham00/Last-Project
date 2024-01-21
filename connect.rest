@@ -1,5 +1,5 @@
 ### Post a user for Yoav
-POST http://localhost:8686/api/v1/users
+POST http://localhost:3000/api/v1/users
 Content-Type: application/json
 
 {
@@ -23,7 +23,7 @@ Content-Type: application/json
 }
 
 ### Post a user for Elvis
-POST http://localhost:8686/api/v1/users
+POST http://localhost:3000/api/v1/users
 Content-Type: application/json
 
 {
@@ -70,6 +70,53 @@ Content-Type: application/json
   "isBusiness": true
 }
 
+### Post a user for Asi
+POST http://localhost:3000/api/v1/users
+Content-Type: application/json
+
+{
+  "name": {
+    "first": "Asi",
+    "middle": "Loger",
+    "last": "Ma Li"
+  },
+  "phone": "0512345569",
+  "email": "Asi@email.com",
+  "password": "Abc!123Abe",
+  "address": {
+    "state": "IL",
+    "country": "Israel",
+    "city": "Arad",
+    "street": "Shoham",
+    "houseNumber": 3,
+    "zip": 8920437
+  },
+  "isBusiness": true
+}
+
+### Post a user for Yoni
+POST http://localhost:3000/api/v1/users
+Content-Type: application/json
+
+{
+  "name": {
+    "first": "Yoni",
+    "middle": "Tambal",
+    "last": "Ya"
+  },
+  "phone": "0512345555",
+  "email": "Yoni@email.com",
+  "password": "Abc!123Abz",
+  "address": {
+    "state": "IL",
+    "country": "Israel",
+    "city": "Bat-Yam",
+    "street": "Narkis",
+    "houseNumber": 317,
+    "zip": 8920433
+  },
+  "isBusiness": true
+}
 
 ### Login for Yoav
 POST http://localhost:8686/api/v1/users/login
@@ -81,7 +128,7 @@ Content-Type: application/json
 }
 
 ### Login for Meni
-POST http://localhost:8686/api/v1/users/login
+POST http://localhost:3000/api/v1/users/login
 Content-Type: application/json
 
 {
@@ -90,7 +137,7 @@ Content-Type: application/json
 }
 
 ### Login for Eli
-POST http://localhost:8686/api/v1/users/login
+POST http://localhost:3000/api/v1/users/login
 Content-Type: application/json
 
 {
@@ -98,6 +145,23 @@ Content-Type: application/json
   "password": "Abc!123Abb"
 }
 
+### Login for Asi
+POST http://localhost:3000/api/v1/users/login
+Content-Type: application/json
+
+{
+  "email": "Asi@email.com",
+  "password": "Abc!123Abe"
+}
+
+### Login for Yoni
+POST http://localhost:3000/api/v1/users/login
+Content-Type: application/json
+
+{
+  "email": "Yoni@email.com",
+  "password": "Abc!123Abz"
+}
 
 ### get Yoav that is an Admin by id:
 GET http://localhost:8686/api/v1/users/655f9fe15c9e4040b13e9344
@@ -174,7 +238,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkVsaUBlb
 
 
 ### post a card for Yoav:
- POST http://localhost:8686/api/v1/cards
+ POST http://localhost:3000/api/v1/cards
 Content-Type: application/json 
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlvYXZAZW1haWwuY29tIiwiaWQiOiI2NTljMzgzODZiY2FhYTkxMTkyMTNhZjUiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3MDQ3MzcyNTd9.T3Tb_b7xvj_eDZoU8Fb4SIIIayjENDeXDoXY1ClHhXk
 
@@ -199,9 +263,9 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlvYXZAZ
 }
 
 ### post a card for Meni:
- POST http://localhost:8686/api/v1/cards
+ POST http://localhost:3000/api/v1/cards
 Content-Type: application/json 
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lbmlAZW1haWwuY29tIiwiaWQiOiI2NTVmYTBhZTVjOWU0MDQwYjEzZTkzNDkiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzAwOTQzODM5fQ.YaC4wKS8R5q2SEHcYbEScw-rgJA__soZlV6iFj0OWec
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lbmlAZW1haWwuY29tIiwiaWQiOiI2NTlmMDAxZWRmMDQ1MDIwNWQ3YzBmOTUiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzA1NjEwNzUzfQ.dhqjveH0pUTKEyeso3oAw0XYV0kI9iR8mZ-7gMXEkaY
 
 {
   "title": "Meni card",
@@ -224,9 +288,9 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lbmlAZ
 }
 
 ### post a card for Eli:
- POST http://localhost:8686/api/v1/cards
+ POST http://localhost:3000/api/v1/cards
 Content-Type: application/json 
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkVsaUBlbWFpbC5jb20iLCJpZCI6IjY1NWZhMGU1NWM5ZTQwNDBiMTNlOTM0ZSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MDA5NDQwNjB9.r_Q8vo_2iQAsRlgWTo_V4J-4K5nB7KbcrYukhSgsu3Y
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkVsaUBlbWFpbC5jb20iLCJpZCI6IjY1OWYwMDEyZGYwNDUwMjA1ZDdjMGY5MCIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MDU2MTA4MDJ9.p5AS3cjjxp3ywK_55WaA1ffkRFuEJ-T0vYbNQt2-THA
 
 {
   "title": "Eli card",
@@ -248,6 +312,55 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkVsaUBlb
   }
 }
 
+### post a card for Asi:
+ POST http://localhost:3000/api/v1/cards
+Content-Type: application/json 
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFzaUBlbWFpbC5jb20iLCJpZCI6IjY1YWMzYTcyY2UzZTkwNmUyMjdlZDBlOCIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MDU3ODYwMTR9.3GpZIRL6YMqiquoW0PAVi66fdgJeZGdpIudGuFIe6O4
+
+{
+  "title": "Asi card",
+  "subtitle": "this is subtitle",
+  "description": "this is a card for Asi",
+  "phone": "0545223459",
+  "email": "Asi@gmail.com",
+  "web": "https://www.google.co.il",
+  "image": {
+    "url": "https://picsum.photos/200/",
+    "alt": "Asi image"
+  },
+  "address": {
+    "country": "israel",
+    "city": "Arad",
+    "street": "Shoham",
+    "houseNumber": 5,
+    "zip": 8920435
+  }
+}
+
+### post a card for Asi:
+ POST http://localhost:3000/api/v1/cards
+Content-Type: application/json 
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IllvbmlAZW1haWwuY29tIiwiaWQiOiI2NWFjM2M2NmUwM2FmZWZiMTVhODA1NGMiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzA1Nzg2NTE1fQ.1ysOgy716-84NunaSDq5VO2qiX2VovSHzxWVRAUe2jA
+
+{
+  "title": "Yoni card",
+  "subtitle": "this is subtitle",
+  "description": "this is a card for Yoni",
+  "phone": "0545223459",
+  "email": "Yoni@gmail.com",
+  "web": "https://www.google.co.il",
+  "image": {
+    "url": "https://picsum.photos/200/",
+    "alt": "Asi image"
+  },
+  "address": {
+  "country": "Israel",
+    "city": "Bat-Yam",
+    "street": "Narkis",
+    "houseNumber": 317,
+    "zip": 8920433
+  }
+}
 
 ### Edit a card by id:
 PUT http://localhost:8686/api/v1/cards/6570e427dd36aa29e65d94d3

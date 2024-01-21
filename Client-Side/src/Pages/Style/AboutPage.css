@@ -1,0 +1,19 @@
+/* AboutPage.css */
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    background-color: #f0f0f0;
+  }
+  .bigDive {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #3ca8b6;
+    text-align: center;
+    background-color: #f0f0f0;
+  }
+ 
+  .bigDive2{
+    color: #3ca8b6;
+    background-color: #f0f0f0;
+  }

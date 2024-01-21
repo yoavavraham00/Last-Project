@@ -7,7 +7,7 @@ import { ICard } from "../DB/Types/models";
 import { validateCardUpdate } from "../Middleware/Common/schemas-Validation";
 import { verifyUserOrAdmin } from "../Middleware/Users/verify-user-or-admin";
 import { verifyCardsUserId } from "../Middleware/Cards/verify-cards";
-import { ICardUpDate } from "../DB/Types/db";
+
 
 const cardsRouter = Router();
 
