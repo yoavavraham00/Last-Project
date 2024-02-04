@@ -29,7 +29,7 @@
     padding: 125px; /* Padding around the entire wood-panel to prevent cards from touching the edges */
     width: auto; /* Sets the width of the container */
     position: relative;
-    left: 4%;
+    left: 3%;
     transform: translate(-50%, -50%);
     background-size: contain;
     height:920px;
@@ -65,7 +65,7 @@
     flex-direction: column;
     justify-content: row;
     align-items: center;
-    width: 170px;
+    width: 160px;
     height: fit-content;
     padding: 10px;
     margin: 5px;
@@ -107,7 +107,7 @@
   .card img {
     width: 150px;
     height: 100px;
-    border-radius: 20%;
+    border-radius: 40%;
     margin: 10px;
   }
 
@@ -115,6 +115,7 @@
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
     transition: background-color 0.6s ease;
     transform: scale(1.4); /* Increase the size of the card on hover */
+    height: 120px;
   }
 
   .card-body {

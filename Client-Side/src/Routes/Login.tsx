@@ -26,6 +26,7 @@ const LoginForm = () => {
     };
     return (
         <div className="login-container">
+            <div className="login-form">
             <Form onSubmit={handleLogin}>
                 <Form.Floating className="mb-3">
                     <Form.Control
@@ -54,6 +55,7 @@ const LoginForm = () => {
                     {isLoggingIn ? 'Logging in...' : 'Login'}
                 </Button>
             </Form>
+            </div>
         </div>
     );
 };
