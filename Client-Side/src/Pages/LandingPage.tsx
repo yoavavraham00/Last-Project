@@ -10,7 +10,7 @@ interface HeroSectionProps {
 }
 
   const HeroSection: React.FC<HeroSectionProps> = ({ cards }) => {
-    const [showBoard, setShowBoard] = useState(true); // State to show/hide the board
+    const [showBoard, setShowBoard] = useState(false); // State to show/hide the board
   
     const toggleBoard = () => {
       setShowBoard(!showBoard); // Toggle the state
@@ -26,26 +26,23 @@ interface HeroSectionProps {
                   <h1 className="text-5xl text-gray-300 font-bold mb-4">Welcome to Our Exclusive Marketplace</h1>
                   <p className="text-2xl text-gray-300 bold">Discover timeless treasures and unique finds</p>      
                   </div>
-                  <div className={`wood-panel ${showBoard ? 'show' : 'hide'}`}>
+                  <div className={`wood-panel ${showBoard  ?  'show' : 'hide'}`}>
           {cards.slice(0, 20).map(card => (
+            <div className="show"  >
             <div className="card-container" key={card._id.toString()}>
               <Card className='card'>
-                <Card.Img variant="top" src={card.image.url} />
-                <Card.Body>
+                <Card.Img className='card-image' variant="top" src={card.image.url} />
+                <Card.Body className='card-body'>
                   <Card.Title>{card.title}</Card.Title>
-                  <Card.Text>
-                    {card.description}
-                  </Card.Text>
-                </Card.Body>
-                <Card.Body>
-                  <Card.Link href="#">Card Link</Card.Link>
-                  <Card.Link href="#">Another Link</Card.Link>
+                  <Card.Text> {card.description}</Card.Text>
+                  <Card.Link className='card-button' href="#">Card Link</Card.Link>
                 </Card.Body>
               </Card>
               </div>
+              </div>
                     ))}
                     </div> 
-                    <button className="classic-button" onClick={toggleBoard} >PleasTouchMe</button>            
+                    <button className="classic-button" onClick={toggleBoard} >TouchMe</button>            
           </section>
         </> 
     );

@@ -5,23 +5,20 @@
   padding: 10px;
   border: 10px solid #333;
   border-radius: 10px;
-  background-color: #a3ddd0;
+  background-color: #cacfab;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   height: 85vh; /* Set the height to 100% of the viewport height */
   overflow-y: auto; /* Add vertical scrollbar if content overflows */
 }
-
 .register-form-header {
   text-align: center;
   margin-bottom: 20px;
 }
-
 .form-row {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
 }
-
 .form-column .form-group {
   position: relative;
   border: 2px solid #ccc;
@@ -30,7 +27,6 @@
   background-color: white;
   margin-bottom: 15px;
 }
-
 .form-column .form-group input {
   background-color: white;
   border: 2px solid #ccc;
@@ -38,7 +34,6 @@
   width: 100%;
   padding: 10px;
 }
-
 .form-column .form-group label {
   position: absolute;
   top: -10px;
@@ -47,25 +42,20 @@
   padding: 0 5px;
   font-size: 12px;
 }
-
 .form-column .form-group.valid {
   border-color: #ccc;
 }
-
 .form-column .form-group.invalid {
   border-color: red;
 }
-
 .form-column {
   flex: 1;
   margin-right: 10px;
 }
-
 label {
   display: block;
   font-weight: bold;
 }
-
 .validation-message {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   display: block;
@@ -73,11 +63,9 @@ label {
   font-size: 11px;
   margin-top: 5px;
 }
-
 .optional-fields {
   margin-top: 10px;
 }
-
 .optional-fields .form-table {
   display: table;
   width: 100%;
@@ -85,29 +73,24 @@ label {
   border: 1px solid #ccc;
   margin-bottom: 15px;
 }
-
 .optional-fields .form-row {
   display: table-row;
 }
-
 .optional-fields .form-group {
   display: table-cell;
   padding: 10px;
   border: 1px solid #ccc;
 }
-
 .optional-fields .form-group label {
   display: block;
   font-weight: normal;
 }
-
 .optional-fields input[type="text"] {
   width: 100%;
   padding: 10px;
   border: 2px solid #ccc;
   font-size: 14px;
 }
-
 .sign-up-business-button {
   background-color: #007bff;
   color: #a7e295;
@@ -116,20 +99,15 @@ label {
   border-radius: 5px;
   margin:  5px;
   cursor: pointer;
-  
 }
-
 .checkbox{
-  margin: 8px;
+  margin: 17px;
 }
-
 .buttons-row {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
 }
-
-.cancel-button,
 .refresh-button,
 .submit-button {
   flex: 1;
@@ -139,17 +117,6 @@ label {
   text-align: center;
   font-weight: bold;
 }
-
-.cancel-button {
-  background-color: #d9534f;
-  color: white;
-  border: none;
-}
-
-.cancel-button:hover {
-  background-color: #c9302c;
-}
-
 .refresh-button {
   background-color: #5bc0de;
   color: white;
@@ -158,22 +125,79 @@ label {
   align-items: center;
   justify-content: center;
 }
-
 .refresh-button i {
   margin-right: 5px;
 }
-
 .refresh-button:hover {
   background-color: #31b0d5;
 }
-
 .submit-button {
   background-color: #5cb85c;
   color: white;
-  border: none;
-  margin-top: 10px;
 }
-
 .submit-button:hover {
   background-color: #449d44;
+}
+
+.overlay .cancel-button {
+
+  background-color: #f5f5f5; /* Light grey background, or choose your own color */
+  color: #333; /* Text color */
+  padding: 5px 27px; /* Smaller padding */
+  font-size: 16px; /* Adjust font size as needed */
+  border: 1px solid #ccc; /* Subtle border */
+  border-radius: 5px; /* Rounded corners */
+  z-index: 11; /* Above the overlay */
+  outline: none; /* Remove outline */
+  cursor: pointer; /* Cursor for clickable element */
+}
+
+.cancel-button:hover {
+  background-color: #c9302c;
+}
+
+.overlay {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center children horizontally */
+  justify-content: center; /* Center children vertically */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  margin-bottom: 70%;
+}
+
+/* Success message styles */
+.registration-success-message {
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 11;
+  width: auto; /* or fixed width */
+  max-width: 500px; /* or any appropriate value */
+  text-align: center;
+  color: green; /* or any color you prefer */
+  margin-bottom: 15px;
+}
+
+.registration-success-message h3 {
+  color: green; /* or any color you prefer */
+  margin-bottom: 15px;
+}
+
+.registration-success-message p {
+  color: #333; /* or any color you prefer */
+}
+
+/* Adding blur to the form when overlay is active */
+.blur-form {
+  filter: blur(5px);
 }

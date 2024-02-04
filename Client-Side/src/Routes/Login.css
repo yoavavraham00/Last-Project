@@ -1,0 +1,147 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  background: url('../Pages/Pictures/club-background.png') no-repeat center center;
+  background-size: cover;
+}
+
+.form-overlay {
+  background-color: rgba(255, 255, 255, 0.8); /* Slight white overlay to improve readability */
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 400px; /* Maximum width of the form */
+}
+
+/* Styling for the floating labels */
+.form-floating {
+  position: relative;
+}
+
+.form-floating > .form-control:focus,
+.form-floating > .form-control:not(:placeholder-shown) {
+  padding-top: 1.625rem;
+}
+
+.form-floating > label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1rem 0.75rem;
+  pointer-events: none;
+  border: 1px solid transparent;
+  transform-origin: 0 0;
+  transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+  opacity: 0.65;
+  transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+}
+
+/* Error message styling */
+.error-message {
+  color: #d9534f; /* Bootstrap 'btn-danger' color */
+  margin-top: 10px;
+}
+
+/* When the form is active (user is logging in) */
+.blur-active {
+  filter: blur(5px);
+}
+
+/* Button styling */
+.btn-primary {
+  background-color: #007bff; /* Bootstrap primary color */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Darken on hover */
+}
+
+/* Disabled state for the button */
+.btn-primary:disabled {
+  background-color: #5a6268; /* Bootstrap secondary color */
+}
+
+/* Styling for the loading state */
+.loading-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem
+}
+
+.message-overlay {
+  position: fixed; /* Fixed position to cover the entire viewport */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  display: flex;
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  z-index: 20; /* Above other content */
+}
+
+/* Box that contains the success/error message */
+.message-box {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  z-index: 21; /* Above the overlay */
+}
+
+/* Button within the message box */
+.message-box button {
+  background-color: #28a745; /* Bootstrap success color */
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  margin-top: 15px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.message-box button:hover {
+  background-color: #218838; /* Darken on hover */
+}
+
+/* Style for the loading message if needed */
+.loading-message {
+  color: #007bff;
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+/* Additional styles for the login form */
+.form-overlay {
+  /* Additional styles if needed */
+}
+
+/* Additional styles for the form control elements */
+.form-floating .form-control,
+.form-floating label {
+  /* Additional styles if needed */
+}
+
+/* You can also add media queries for responsiveness */
+@media (max-width: 768px) {
+  .login-container {
+    padding: 15px; /* Smaller padding on smaller screens */
+  }
+  .form-overlay {
+    padding: 20px; /* Smaller padding on the form */
+  }
+}

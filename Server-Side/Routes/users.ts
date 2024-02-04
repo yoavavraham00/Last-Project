@@ -1,7 +1,6 @@
 import { Router } from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-
 import { IUser } from "../DB/Types/models";
 import User from "../DB/Model/user.model";
 import { validateUser, validateUserUpdate } from "../Middleware/Common/schemas-Validation";
@@ -20,12 +19,13 @@ const usersRouter = Router(); // create a router object in order to use the rout
 
 usersRouter.post("/", validateUser, async (req, res, next) => {
   const body = req.body as IUser; // get the body from the request
-
+  console.log(body)
   try {
     const savedUser = await userService.saveUser(body); // save the user
 
     return res.status(200).json(savedUser);
   } catch (e) {
+    console.log(e.message)
     return res.status(400).json(e);
   } 
 }); // post a user

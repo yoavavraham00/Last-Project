@@ -1,11 +1,11 @@
 .light-mode {
-    background-color: #f8f9fa; /* Light mode background color */
-    color: #d4a48e; /* Light mode text color */
+    background-color: #FCFBFA; /* Light mode background color */
+    color: #0D6EFD; /* Light mode text color */
   }
   
   .dark-mode {
-    background-color: #343a40; /* Dark mode background color */
-    color: #557029; /* Dark mode text color */
+    background-color: #1F2937; /* Dark mode background color */
+    color: #0D6EFD; /* Dark mode text color */
   }
     
     .navbar {
@@ -13,25 +13,49 @@
       justify-content: space-between;
       align-items: center;
       padding: 10px 10px;
+      height: 90px;
+      transform: scale(0.9);
     }
     
-    .search-icon,
-    .dark-mode-icon {
-      display: flex;
-      align-items: center;
+    .search-icon:hover svg,
+    .dark-mode-icon:hover svg{
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.6s ease; 
+      
     }
     
     .search-icon svg,
     .dark-mode-icon svg {
+      display: flex;
+      align-items: center;
       font-size: 1.2rem;
       margin:30;
       cursor: pointer;
+      background-color: #a38d5d;
+      transform: scale(1.1); /* Slightly enlarge the icon on hover */
+      transition: transform 0.3s ease; /* Smooth transition for the scaling */
     }
   
     .dark-mode-container {
       margin-right: 20px; /* Adjust the margin as needed */
     }
+
+    .dark-mode-container:hover {
+      transform: scale(1.1);
+      transition: transform 0.3s ease;
+    }
   
     .dark-mode-button {
       margin: 12px 3px;
     }
+
+    .dark-mode-button:hover {
+      margin: 12px 3px;
+    }
+
+    .nav-link:hover {
+      transform: scale(1.1);
+      transition: transform 0.3s ease;
+    }
+
+    

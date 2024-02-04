@@ -8,7 +8,6 @@ import { validateCardUpdate } from "../Middleware/Common/schemas-Validation";
 import { verifyUserOrAdmin } from "../Middleware/Users/verify-user-or-admin";
 import { verifyCardsUserId } from "../Middleware/Cards/verify-cards";
 
-
 const cardsRouter = Router();
 
 cardsRouter.get("/", async (req, res, next) => {

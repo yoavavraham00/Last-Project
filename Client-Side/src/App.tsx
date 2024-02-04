@@ -1,19 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import {Route, Routes, } from 'react-router-dom';
 import axios from 'axios';
-// import './themed-bootstrap.scss';
 import  Card  from './Routes/Card';
-import  Register  from './Routes/Register';
+import register from './Pages/RegisterPage';
 import  Login  from './Routes/Login';
 import  NotFound  from './Routes/NotFound';
-import Header from './Components/Header';
 import Footer from './Components/Footer';
 import HeroSection from './Pages/LandingPage';
+import { ICard, IUser } from './DB/Types/models';
+import { NavBarHeader } from './Components/NavbarHeader';
 import ProductDisplay from './Components/ProductDisplay';
-import { ICard } from './DB/Types/models.d';
+import AboutPage from './Pages/AboutPage';
+import Registrationpage from './Pages/RegisterPage';
+
 
 function App() {
+
   const [cards, setCards] = useState<ICard[]>([]);
+  const [darkMode, setDarkMode] = useState(false);
+  const toggleDarkMode = () => {
+    setDarkMode((prevMode) => !prevMode);
+  };
 
   useEffect(() => {
     axios.get('http://localhost:3000/api/v1/cards')
@@ -25,7 +32,8 @@ function App() {
 
   return (
    <>
-      <Header />
+   <div className={`app ${darkMode ? 'dark-mode' : 'light-mode'}`}>
+   <NavBarHeader darkMode={darkMode} toggleDarkMode={toggleDarkMode} isLoggedIn={undefined} />
       <Routes>
         <Route path="/" element={
           <>
@@ -33,11 +41,13 @@ function App() {
           </>
         } />
         <Route path="/cards/:id" element={<Card />} />
-        <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/About" element={<AboutPage />} />
+        <Route path="/register" element={<Registrationpage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
+      </div>
     </>
   );
 }

@@ -237,7 +237,7 @@ GET http://localhost:8686/api/v1/cards
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkVsaUBlbWFpbC5jb20iLCJpZCI6IjY1NWZhMGU1NWM5ZTQwNDBiMTNlOTM0ZSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MDA5NDQwNjB9.r_Q8vo_2iQAsRlgWTo_V4J-4K5nB7KbcrYukhSgsu3Y
 
 
-### post a card for Yoav:
+### post a card for Yoav 2:
  POST http://localhost:3000/api/v1/cards
 Content-Type: application/json 
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlvYXZAZW1haWwuY29tIiwiaWQiOiI2NTljMzgzODZiY2FhYTkxMTkyMTNhZjUiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE3MDQ3MzcyNTd9.T3Tb_b7xvj_eDZoU8Fb4SIIIayjENDeXDoXY1ClHhXk
@@ -268,7 +268,7 @@ Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Ik1lbmlAZW1haWwuY29tIiwiaWQiOiI2NTlmMDAxZWRmMDQ1MDIwNWQ3YzBmOTUiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzA1NjEwNzUzfQ.dhqjveH0pUTKEyeso3oAw0XYV0kI9iR8mZ-7gMXEkaY
 
 {
-  "title": "Meni card",
+  "title": "Meni card 2",
   "subtitle": "this is subtitle",
   "description": "this is a card for meni",
   "phone": "053644567",
@@ -293,7 +293,7 @@ Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkVsaUBlbWFpbC5jb20iLCJpZCI6IjY1OWYwMDEyZGYwNDUwMjA1ZDdjMGY5MCIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MDU2MTA4MDJ9.p5AS3cjjxp3ywK_55WaA1ffkRFuEJ-T0vYbNQt2-THA
 
 {
-  "title": "Eli card",
+  "title": "Eli card 2",
   "subtitle": "this is subtitle",
   "description": "this is a card for eli",
   "phone": "0545223456",
@@ -318,7 +318,7 @@ Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFzaUBlbWFpbC5jb20iLCJpZCI6IjY1YWMzYTcyY2UzZTkwNmUyMjdlZDBlOCIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3MDU3ODYwMTR9.3GpZIRL6YMqiquoW0PAVi66fdgJeZGdpIudGuFIe6O4
 
 {
-  "title": "Asi card",
+  "title": "Asi card 2",
   "subtitle": "this is subtitle",
   "description": "this is a card for Asi",
   "phone": "0545223459",
@@ -337,13 +337,13 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFzaUBlb
   }
 }
 
-### post a card for Asi:
+### post a card for Yoni:
  POST http://localhost:3000/api/v1/cards
 Content-Type: application/json 
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IllvbmlAZW1haWwuY29tIiwiaWQiOiI2NWFjM2M2NmUwM2FmZWZiMTVhODA1NGMiLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzA1Nzg2NTE1fQ.1ysOgy716-84NunaSDq5VO2qiX2VovSHzxWVRAUe2jA
 
 {
-  "title": "Yoni card",
+  "title": "Yoni card 2",
   "subtitle": "this is subtitle",
   "description": "this is a card for Yoni",
   "phone": "0545223459",
@@ -384,6 +384,26 @@ Content-Type: application/json
     "street": "crapel",
     "houseNumber": 22,
     "zip": 8920427
+  }
+}
+
+{
+  "title": "Rany card",
+  "subtitle": "this is subtitle",
+  "description": "this is a card for meni",
+  "phone": "053644567",
+  "email": "Rany@gmail.com",
+  "web": "https://www.google.co.il",
+  "image": {
+    "url": "https://picsum.photos/200/",
+    "alt": "Rany image"
+  },
+  "address": {
+    "country": "israel",
+    "city": "arad",
+    "street": "salomon",
+    "houseNumber": 7,
+    "zip": 8920435
   }
 }
 

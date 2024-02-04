@@ -1,44 +1,47 @@
-import React, { useState } from 'react';
-import './RegistrationPage.css';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import RegistrationSuccessMessage from '../Components/RegistrationMessage';
+import './Style/RegistrationPage.css';
 
 interface IUser {
+    email: string;
+    password: string;
+    isBusiness: boolean;
+    phone: string;
     first: string;
     middle?: string;
     last: string;
     country: string;
-    state?: string;
     city: string;
     street: string;
-    houseNumber: number;
+    state?: string;
     zip?: number;
-    email: string;
-    phone: string;
-    password: string;
-    isBusiness: boolean;
-    isAdmin: boolean;
+    houseNumber: number;
     image: string;
 }
 
-const Registrationpage: React.FC = () => {
-    const [user, setUser] = useState<IUser>({
+const Register: React.FC = () => {
+    const initialUserState: IUser ={
+        email: '',
+        password: '',
+        isBusiness: false,
+        phone: '',
         first: '',
         middle: '',
         last: '',
         country: '',
-        state: '',
         city: '',
         street: '',
-        houseNumber: 0,
+        state: '',
         zip: 0,
-        email: '',
-        phone: '',
-        password: '',
-        isBusiness: false,
-        isAdmin: false,
+        houseNumber: 0,
         image: 'https://cdn-icons-png.flaticon.com/512/6596/6596121.png'
-    });
+    };
 
+
+    const [user, setUser] = useState<IUser>(initialUserState);
     const [errors, setErrors] = useState<string[]>([]);
+    const [isRegistered, setIsRegistered] = useState(false);
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d!@#$%^&*-_*]{8,}$/;
@@ -51,6 +54,7 @@ const Registrationpage: React.FC = () => {
         if (!passwordRegex.test(user.password)) {
             newErrors.push("Password must contain at least one uppercase letter, one lowercase letter, four numbers, one special character, and be at least 8 characters long.");
         }
+        // ...any other validations...
         setErrors(newErrors);
         return newErrors.length === 0;
     };
@@ -63,23 +67,65 @@ const Registrationpage: React.FC = () => {
         }));
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (validate()) {
-            console.log(user);
-            // API call to send data to server goes here
+        if (!validate()) {
+            console.error('Validation errors:', errors); // Log validation errors
+            return; // Stop the form submission if validation fails
         }
-    };
+        try {
+            const response = await axios.post('http://localhost:3000/api/v1/users', {
+            name: {
+                first: user.first,
+                middle: user.middle,
+                last: user.last
+            },
+            phone: user.phone,
+            email: user.email,
+            password: user.password,
+            address: {
+                state: user.state,
+                country: user.country,
+                city: user.city,
+                street: user.street,
+                houseNumber: user.houseNumber,
+                zip: user.zip,
+            },
+            isBusiness: user.isBusiness,
+            image: {
+                url:user.image,
+                alt: ""
+                    }
+                });
+
+                console.log('User registered:', response.data);
+            setIsRegistered(true); // Set the registration status to true
+            
+            } catch (error) {
+                if (axios.isAxiosError(error) && error.response) {
+                    console.error('Server responded with:', error.response.data); // Detailed error message from server
+                } else {
+                    console.error('Error submitting form:', error);
+                }
+            }
+        };
 
     const handleReset = () => {
-        // Reset form
+        setUser(initialUserState);
+        setIsRegistered(false); // Reset the registration status
     };
 
-    const handleCancel = () => {
-        // Handle cancel action
-    };
     return (
-        <div className="register-form">
+        <div className="register-container">
+            {isRegistered && (
+                <div className="overlay">
+                    <RegistrationSuccessMessage />
+                    <button type="reset" className="cancel-button" onClick={handleReset}>Reset</button>
+                </div>
+            )}
+        <div className={`register-form ${isRegistered ? 'blur-form' : ''}`}>
+             {!isRegistered ? (
+                <>
             <div className="register-form-header">
                 <h2>Registration</h2>
             </div>
@@ -177,21 +223,27 @@ const Registrationpage: React.FC = () => {
                         <div className="form-group checkbox">
                             <label htmlFor="isBusiness">Is Business Account</label>
                             <input type="checkbox" name="isBusiness" checked={user.isBusiness} onChange={handleChange} />
-                        </div>
+                        </div> 
+
                         <div className="form-group checkbox">
-                            <label htmlFor="isAdmin">Is Admin</label>
-                            <input type="checkbox" name="isAdmin" checked={user.isAdmin} onChange={handleChange} />
+                            <label htmlFor="image">Image</label>
+                            <input type="text" name="image" value={user.image} onChange={handleChange} />
+                            <input type="text" name="alt image" value={user.image} onChange={handleChange} />
                         </div>
                     </div>
                 </div>
                 <div className="buttons-row">
-                    <button type="submit" className="submit-button">Submit</button>
-                    <button type="button" className="cancel-button" onClick={handleCancel}>Cancel</button>
+                    <button type="submit" className="submit-button" >Submit</button>
                     <button type="reset" className="refresh-button" onClick={handleReset}>Reset</button>
                 </div>
             </form>
+            </>
+            ) : (
+                <RegistrationSuccessMessage />
+            )}
+        </div>
         </div>
     );
 };
 
-export default Registrationpage;
+export default Register;

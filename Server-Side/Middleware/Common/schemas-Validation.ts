@@ -14,6 +14,7 @@ const validateSchema: ValidateSchema =
       await schema.validateAsync(req.body); 
       next(); //if all is good - pass to the next route
     } catch (e) { 
+      console.log(e.message)
       return res.status(400).json(e);  //if validation failed throw an error - bad request
     }
   };

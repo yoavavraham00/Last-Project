@@ -1,8 +1,7 @@
 import React from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import { useAccordionButton } from 'react-bootstrap/AccordionButton';
-import Card from 'react-bootstrap/Card';
-import './AboutPage.css';
+import './Style/AboutPage.css';
 
 function CustomToggle({ children, eventKey }) {
   const decoratedOnClick = useAccordionButton(eventKey, () =>
@@ -26,7 +25,7 @@ function CustomToggle({ children, eventKey }) {
   );
 }
 
-export function AboutPage({ eventKey }) {
+const AboutPage = () => { 
   return (
 
     <div className='bigDive2' style={{ textAlign: 'center', padding: '20px' }}>
@@ -60,3 +59,5 @@ export function AboutPage({ eventKey }) {
       </div>
   );
 } 
+
+export default AboutPage;
