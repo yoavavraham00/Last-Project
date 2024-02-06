@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Route, Routes, } from 'react-router-dom';
+import {Route, Routes, useNavigate, } from 'react-router-dom';
 import axios from 'axios';
 import  Card  from './Routes/Card';
 import register from './Pages/RegisterPage';
@@ -18,10 +18,20 @@ function App() {
 
   const [cards, setCards] = useState<ICard[]>([]);
   const [darkMode, setDarkMode] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  
   const toggleDarkMode = () => {
     setDarkMode((prevMode) => !prevMode);
   };
+  
+  const navigate = useNavigate();
 
+  const handleLogout = () => {
+  localStorage.removeItem('token');
+  setIsLoggedIn(false);
+  navigate('/cards/:id'); // Redirect to home after logout
+};
+  
   useEffect(() => {
     axios.get('http://localhost:3000/api/v1/cards')
       .then(response => {
@@ -33,7 +43,7 @@ function App() {
   return (
    <>
    <div className={`app ${darkMode ? 'dark-mode' : 'light-mode'}`}>
-   <NavBarHeader darkMode={darkMode} toggleDarkMode={toggleDarkMode} isLoggedIn={undefined} />
+   <NavBarHeader key={isLoggedIn ? 'logged-in' : 'logged-out'} darkMode={darkMode} toggleDarkMode={toggleDarkMode} isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={
           <>
@@ -41,7 +51,7 @@ function App() {
           </>
         } />
         <Route path="/cards/:id" element={<Card />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/About" element={<AboutPage />} />
         <Route path="/register" element={<Registrationpage />} />
         <Route path="*" element={<NotFound />} />
