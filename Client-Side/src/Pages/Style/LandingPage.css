@@ -41,20 +41,18 @@
     grid-gap: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 10; 
-    transition: transform 0.5s ease; /* Smooth transition for the transform */
+    transition: transform 0.5s ease; /* Ensure smooth transition */
+    transform: translateY(100%); /* Start off-screen */
     box-sizing: border-box;
     border-radius: 30px;
   }
   
   .show {
-    transform: translateY(4%); /* Show the board */
-    top: 0%; /* Adjust as necessary */
-    
+    transform: translateY(0%); /* Slide into view */
   }
   
   .hide {
-    transform: translateY(-100%); /* Hide the board */
-    top: 0; /* Adjust as necessary */
+    transform: translateY(-100%); /* Slide out of view */
   }
   
   .card {

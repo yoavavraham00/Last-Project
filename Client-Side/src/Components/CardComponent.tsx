@@ -15,7 +15,7 @@ const CardComponent: React.FC<CardProps> = ({ card }) => {
                 <p className="text-gray-700 text-base">{card.description}</p>
                 <p className="text-gray-600 text-sm">Phone: {card.phone}</p>
                 <p className="text-gray-600 text-sm">Email: {card.email}</p>
-                {card.web && <p className="text-gray-600 text-sm">Website: {card.web}</p>}
+                {card.web && <p className="text-gray-600 text-sm">: {card.web}</p>}
                 <p className="text-gray-600 text-sm">Address: {`${card.address.street}, ${card.address.city}`}</p>
                 {/* Render other fields as needed */}
             </div>
