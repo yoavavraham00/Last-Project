@@ -15,6 +15,7 @@ const validateSchema: ValidateSchema =
       next(); //if all is good - pass to the next route
     } catch (e) { 
       console.log(e.message)
+      console.error(e);
       return res.status(400).json(e);  //if validation failed throw an error - bad request
     }
   };

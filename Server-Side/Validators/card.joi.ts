@@ -14,7 +14,7 @@ const joiCardsSchema = Joi.object<ICard>({
     alt: Joi.string().max(256),
   }),
   address: Joi.object<IAddress>({
-    state: Joi.string().min(2).max(256),
+    state: Joi.string().max(256),
     country: Joi.string().required().min(2).max(256),
     city: Joi.string().required().min(2).max(256),
     street: Joi.string().required().min(2).max(256),

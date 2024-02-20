@@ -59,8 +59,9 @@ cardsRouter.put("/:id", validateCard, verifyCardsUserId, async (req, res, next) 
       const id = req.params.id;
       const body = req.body as ICard;
       const updatedCard = await Card.findByIdAndUpdate(id, body, {
-        new: true,
+      new: true,
       });
+      console.log(`Updating card with ID: ${id}, Body: `, body);
       if (!updatedCard) {
         return res.status(404).json({ message: `the Card with: ${id} Not found` });
       }

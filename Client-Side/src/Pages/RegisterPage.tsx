@@ -35,7 +35,7 @@ const Register: React.FC = () => {
         state: '',
         zip: 0,
         houseNumber: 0,
-        image: 'https://cdn-icons-png.flaticon.com/512/6596/6596121.png'
+        image: ''
     };
 
 

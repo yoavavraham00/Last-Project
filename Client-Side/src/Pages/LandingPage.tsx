@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import "./Style/LandingPage.css"; 
@@ -35,7 +35,7 @@ interface HeroSectionProps {
                 <Card.Body className='card-body'>
                   <Card.Title>{card.title}</Card.Title>
                   <Card.Text> {card.description}</Card.Text>
-                  <Card.Link className='card-button' href="#">Card Link</Card.Link>
+                  <Card.Link className='card-button' href={`mailto:${card.email}`}>Email Us</Card.Link>
                 </Card.Body>
               </Card>
               </div>

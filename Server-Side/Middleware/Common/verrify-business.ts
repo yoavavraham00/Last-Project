@@ -10,7 +10,7 @@ export const verifyIsBusiness: RequestHandler = async (req, res, next) => {
 
   // if auth header does not exist - throw
   if (!header) {
-    throw new ApplicationError(400, "No Auth Header");
+    return next(new ApplicationError(400, "No Auth Header"));
   }
 
   //get the token from the header (after the space)

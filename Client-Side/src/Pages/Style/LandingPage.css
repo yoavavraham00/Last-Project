@@ -41,18 +41,44 @@
     grid-gap: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 10; 
-    transition: transform 0.5s ease; /* Ensure smooth transition */
-    transform: translateY(100%); /* Start off-screen */
+    transform: translateY(-100%); /* Slide into view */
     box-sizing: border-box;
     border-radius: 30px;
+    opacity:0;
   }
-  
+
+@keyframes disablePage {
+    from {
+      opacity: 1;
+      transform: translateY(-100%); /* Slide into view */
+    }
+    to {
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(-100vh); /* Slide out of view */
+    }
+
+}
+@keyframes enablePage {
+  from {
+    opacity:0;
+    transform: translateY(-100vh); /* Slide into view */
+    pointer-events: none;
+  }
+  to {
+    pointer-events: inherit;
+    opacity: 1;
+    transform: translateY(-100%); /* Slide into view */
+  }
+
+}
+
   .show {
-    transform: translateY(0%); /* Slide into view */
+    animation: enablePage 0.5s ease-in-out forwards !important;
   }
   
   .hide {
-    transform: translateY(-100%); /* Slide out of view */
+    animation: disablePage 0.5s ease-in-out forwards !important;
   }
   
   .card {
@@ -73,7 +99,7 @@
     border-radius: 15px;
     border-color: black;
     box-shadow:  10px 10px rgba(0, 0, 0, 0.1);
-    transform: scale(1.1); /* Slightly enlarge the icon on hover */
+    transform: scale(1.1) translateY(100%); /* Slightly enlarge the icon on hover */
     transition: transform 0.3s ease; /* Smooth transition for the scaling */
     z-index: 10;
   }

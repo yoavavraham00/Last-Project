@@ -12,6 +12,8 @@ import { NavBarHeader } from './Components/NavbarHeader';
 import ProductDisplay from './Components/ProductDisplay';
 import AboutPage from './Pages/AboutPage';
 import Registrationpage from './Pages/RegisterPage';
+import BusinessCardForm from './Components/BusinessCardForm';
+
 
 
 function App() {
@@ -29,7 +31,7 @@ function App() {
   const handleLogout = () => {
   localStorage.removeItem('token');
   setIsLoggedIn(false);
-  navigate('/cards/:id'); // Redirect to home after logout
+  navigate('/'); // Redirect to home after logout
 };
   
   useEffect(() => {
@@ -54,6 +56,7 @@ function App() {
         <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/About" element={<AboutPage />} />
         <Route path="/register" element={<Registrationpage />} />
+        <Route path="/create-card" element={<BusinessCardForm />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
