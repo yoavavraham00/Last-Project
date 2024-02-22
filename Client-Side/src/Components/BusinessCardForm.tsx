@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { type } from 'os';
+
 
 interface ICard {
     _id?: string;
@@ -49,6 +49,8 @@ const BusinessCardForm: React.FC<Props> = ({ card }) => {
         },
     });
     const [formErrors, setFormErrors] = useState<string[]>([]);
+    const [cardId, setCardId] = useState('');
+
     const navigate = useNavigate();
     const location = useLocation();
     
@@ -79,22 +81,24 @@ const BusinessCardForm: React.FC<Props> = ({ card }) => {
             }));
         }
     };
-    
-    const validateForm = () => {
-        let errors = [];
-        Object.keys(formData).forEach(key => {
-            if (typeof formData[key] === 'string' && !formData[key].trim()) {
-                errors.push(`${key} is required.`);
-            }
-        });
-        // Validation for nested objects (image and address)
-        if (!formData.image.url.trim()) errors.push("Image URL is required.");
-        if (!formData.address.country.trim()) errors.push("Country is required.");
-    
-        setFormErrors(errors); 
-        return errors.length === 0;
-    };
 
+    const loadCardData = async () => {
+        try {
+            const url = `http://localhost:3000/api/v1/cards/${cardId}`;
+            console.log('Fetching card from:', url); // Log the URL for debugging
+    
+            const response = await axios.get(url, {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                }
+            });
+    
+            console.log('Card data received:', response.data); // Log the received data
+            setFormData(response.data); // Adjust this if the data structure is different
+        } catch (error) {
+            console.error('Error loading card:', error.response ? error.response.data : error);
+        }
+    };
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         // Explicitly convert houseNumber and zip to numbers to match backend expectations
@@ -128,8 +132,18 @@ const BusinessCardForm: React.FC<Props> = ({ card }) => {
         console.error('Error submitting form:', error);
     }
 };
+
 return (
     <form onSubmit={handleSubmit}>
+        <div>
+            <input
+                type="text"
+                value={cardId}
+                onChange={(e) => setCardId(e.target.value)}
+                placeholder="Card ID"
+            />
+            <button type="button" onClick={loadCardData}>Load Card</button>
+        </div>
         {formErrors.length > 0 && (
             <div className="form-errors">
                 {formErrors.map((error, index) => (
@@ -150,7 +164,6 @@ return (
         <input type="text" name="address.street" value={formData.address.street} onChange={handleChange} placeholder="Street" required />
         <input type="number" name="address.houseNumber" value={formData.address.houseNumber.toString()} onChange={handleChange} placeholder="House Number" required />
         <input type="number" name="address.zip" value={formData.address.zip.toString()} onChange={handleChange} placeholder="Zip" required />
-
         <button type="submit">Submit</button>
     </form>
 );
