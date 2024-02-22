@@ -25,18 +25,6 @@ export function NavBarHeader({ darkMode, toggleDarkMode, isLoggedIn, handleLogou
         </Link>
     </Nav.Item>
     <Nav.Item>
-        <Link to="/about" className="nav-link">
-          <FaStar />
-          <span className="nav-tooltip">About Us</span>
-        </Link>
-    </Nav.Item>
-    <Nav.Item>
-        <Link to="/register" className="nav-link">
-          <FaStar />
-          <span className="nav-tooltip">Registration Page</span>
-        </Link>
-    </Nav.Item>
-    <Nav.Item>
         <Link to="/cards" className="nav-link">
           <FaStar />
           <span className="nav-tooltip">Our theater</span>
@@ -56,13 +44,26 @@ export function NavBarHeader({ darkMode, toggleDarkMode, isLoggedIn, handleLogou
               </Link>
     </Nav.Item></>
 )}
+ {!isLoggedIn && (
+        <><Nav.Item>
+            <Link to="/register" className="nav-link">
+              <FaStar />
+              <span className="nav-tooltip">Registration Page</span>
+            </Link>
+          </Nav.Item>
+          <Nav.Item>
+              <Link to="/about" className="nav-link">
+                <FaStar />
+                <span className="nav-tooltip">About Us</span>
+              </Link>
+            </Nav.Item></>
+      )}
       <div className="dark-mode-container">
         <button className="dark-mode-button" onClick={toggleDarkMode}>
           {darkModeIcon}Dark/Light Mode
         </button>
       </div>
-      {isLoggedIn ? (
-        // Show Logout link when the user is logged in
+      {isLoggedIn ? (// Show link's when the user is logged in
         <Nav.Item>
         <Link to="/" onClick={handleLogoutClick} className="nav-link">
           <FaStar />
@@ -77,6 +78,7 @@ export function NavBarHeader({ darkMode, toggleDarkMode, isLoggedIn, handleLogou
             <span className="sign-in">Log in</span>
           </Link>
         </Nav.Item>
+        
       )}
     </Nav>
     </div>
