@@ -16,7 +16,7 @@ export function SavedCardsPage() {
     async function fetchSavedCards() {
       try {
         // Fetch the user's saved cards from your backend (you might need to send user authentication tokens here)
-        const apiUrl = 'http://localhost:3000/api/v1/cards/my-cards'; // Update the URL with the correct endpoint
+        const apiUrl = 'http://localhost:3000/api/v1/my-cards'; // Update the URL with the correct endpoint
         const response = await axios.get(apiUrl);
         setSavedCards(response.data);
       } catch (error) {

@@ -13,6 +13,8 @@ import ProductDisplay from './Components/ProductDisplay';
 import AboutPage from './Pages/AboutPage';
 import Registrationpage from './Pages/RegisterPage';
 import BusinessCardForm from './Components/BusinessCardForm';
+import { SavedCardsPage } from './Pages/FAVItems';
+import LoginForm from './Routes/Login';
 
 
 
@@ -21,6 +23,7 @@ function App() {
   const [cards, setCards] = useState<ICard[]>([]);
   const [darkMode, setDarkMode] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isBusiness, setIsBusiness] = useState(false);
   
   const toggleDarkMode = () => {
     setDarkMode((prevMode) => !prevMode);
@@ -31,6 +34,7 @@ function App() {
   const handleLogout = () => {
   localStorage.removeItem('token');
   setIsLoggedIn(false);
+  setIsBusiness(false);  
   navigate('/'); // Redirect to home after logout
 };
   
@@ -40,7 +44,11 @@ function App() {
         setCards(response.data);
       })
       .catch(error => console.error('Error fetching cards:', error));
-  }, []);
+      const token = localStorage.getItem('token');
+      if (token) {
+        setIsLoggedIn(true); // setUserRole based on the token payload or an API response
+      }
+    }, []);
 
   return (
    <>
@@ -49,14 +57,15 @@ function App() {
       <Routes>
         <Route path="/" element={
           <>
-            <HeroSection cards={cards} />        
+            <HeroSection cards={cards} isLoggedIn={isLoggedIn} isBusiness={isBusiness} />        
           </>
         } />
         <Route path="/cards/:id" element={<Card />} />
-        <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setIsBusiness={setIsBusiness} />} />
         <Route path="/About" element={<AboutPage />} />
         <Route path="/register" element={<Registrationpage />} />
         <Route path="/create-card" element={<BusinessCardForm />} />
+        <Route path="/saved-cards" element={<SavedCardsPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

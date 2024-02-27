@@ -95,10 +95,25 @@ const BusinessCardForm: React.FC<Props> = ({ card }) => {
     
             console.log('Card data received:', response.data); // Log the received data
             setFormData(response.data); // Adjust this if the data structure is different
-        } catch (error) {
-            console.error('Error loading card:', error.response ? error.response.data : error);
+        } 
+        catch (error) {
+            // Improved error handling
+            if (error.response) {
+                // The server responded with a status code that falls out of the range of 2xx
+                console.error('Error response:', error.response.data);
+                console.error('Error status:', error.response.status);
+                console.error('Error headers:', error.response.headers);
+            } else if (error.request) {
+                // The request was made but no response was received
+                console.error('Error request:', error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.error('Error message:', error.message);
+            }
+            console.error('Error config:', error.config);
         }
     };
+    
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         // Explicitly convert houseNumber and zip to numbers to match backend expectations
@@ -110,10 +125,10 @@ const BusinessCardForm: React.FC<Props> = ({ card }) => {
                 zip: Number(formData.address.zip),
             },
         };
-       try {
+    try {
         let response;
         if (card) {
-            response = await axios.put(`http://localhost:3000/api/v1/cards/${card._id}`, payload, {
+            response = await axios.get(`http://localhost:3000/api/v1/cards/${card._id}`, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
                 }

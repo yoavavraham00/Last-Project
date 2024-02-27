@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
 import "./Login.css";
 
-const LoginForm = ({isLoggedIn, setIsLoggedIn}) => {
+const LoginForm = ({ isLoggedIn, setIsLoggedIn, setIsBusiness }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -11,11 +11,11 @@ const LoginForm = ({isLoggedIn, setIsLoggedIn}) => {
 
     const handleLogin = async (event) => {
         event.preventDefault();
-        setIsLoggedIn(true);
         try {
             const response = await axios.post('http://localhost:3000/api/v1/users/login', { email, password });
             localStorage.setItem('token', response.data.token);
             setIsLoggedIn(true);
+            setIsBusiness(true);
             setShowSuccessMessage(true);
         } catch (err) {
             setError('Failed to log in');
@@ -69,3 +69,5 @@ const LoginForm = ({isLoggedIn, setIsLoggedIn}) => {
 };
 
 export default LoginForm;
+
+
