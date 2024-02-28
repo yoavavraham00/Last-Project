@@ -17,6 +17,22 @@ import { IUserUpdate } from "../DB/Types/db";
 
 const usersRouter = Router(); // create a router object in order to use the router methods
 
+usersRouter.get("/me", verifyToken, async (req, res, next) => {
+  try {
+    const userId = req.user.id; // Get user ID from the token
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Return the user data including the isBusiness field
+    res.json({ email: user.email, isBusiness: user.isBusiness, /* other fields you want to include */ });
+  } catch (e) {
+    console.log(e);
+    next(e);
+  }
+}); //Get the user data
+
 usersRouter.post("/", validateUser, async (req, res, next) => {
   const body = req.body as IUser; // get the body from the request
   console.log(body)

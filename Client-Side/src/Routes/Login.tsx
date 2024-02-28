@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
+import jwtDecode from 'jwt-decode';
 import "./Login.css";
 
 const LoginForm = ({ isLoggedIn, setIsLoggedIn, setIsBusiness }) => {
@@ -8,6 +9,19 @@ const LoginForm = ({ isLoggedIn, setIsLoggedIn, setIsBusiness }) => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+    
+    const getUserDetails = async (token) => {
+        try {
+            // Set the authorization header with the token
+            const config = {
+                headers: { Authorization: `Bearer ${token}` }
+            };
+            const response = await axios.get('http://localhost:3000/api/v1/users/me', config);
+            setIsBusiness(response.data.isBusiness);
+        } catch (err) {
+            console.error('Error fetching user details:', err);
+        }
+    };
 
     const handleLogin = async (event) => {
         event.preventDefault();
@@ -15,12 +29,14 @@ const LoginForm = ({ isLoggedIn, setIsLoggedIn, setIsBusiness }) => {
             const response = await axios.post('http://localhost:3000/api/v1/users/login', { email, password });
             localStorage.setItem('token', response.data.token);
             setIsLoggedIn(true);
-            setIsBusiness(true);
+            await getUserDetails(response.data.token);
             setShowSuccessMessage(true);
         } catch (err) {
             setError('Failed to log in');
+            console.error(err);
         }
     };
+    
     return (
         <div className={`login-container ${showSuccessMessage ? 'blur-active' : ''}`}>
             <div className={`login-form ${showSuccessMessage ? 'blur-active' : ''}`}>

@@ -4,7 +4,7 @@ import { FaStar } from 'react-icons/fa'; // Import EiStar icon from React Icons
 import { Link } from 'react-router-dom'; // Import Link from React Router
 import './Style/NavBarHeader.css';
 
-export function NavBarHeader({ darkMode, toggleDarkMode, isLoggedIn, handleLogout  }) {
+export function NavBarHeader({ darkMode, toggleDarkMode, isLoggedIn, handleLogout ,IsBusiness }) {
 
   const navClass = darkMode ? 'dark-nav' : 'light-nav';
   const darkModeIcon = darkMode ? <FaStar /> : <FaStar />;
@@ -30,7 +30,7 @@ export function NavBarHeader({ darkMode, toggleDarkMode, isLoggedIn, handleLogou
           <span className="nav-tooltip">Our theater</span>
         </Link>
       </Nav.Item>
-      {isLoggedIn && (
+      {isLoggedIn && IsBusiness &&(
     <><Nav.Item>
             <Link to="/saved-cards" className="nav-link">
               <FaStar />
@@ -43,6 +43,16 @@ export function NavBarHeader({ darkMode, toggleDarkMode, isLoggedIn, handleLogou
                 <span className="nav-tooltip">create A Cards</span>
               </Link>
     </Nav.Item></>
+)}
+ {isLoggedIn && !IsBusiness &&(
+    <>
+    <Nav.Item>
+              <Link to="/create-card" className="nav-link">
+                <FaStar />
+                <span className="nav-tooltip">create A Cards</span>
+              </Link>
+    </Nav.Item>
+    </>
 )}
  {!isLoggedIn && (
         <><Nav.Item>

@@ -15,9 +15,12 @@ export function SavedCardsPage() {
   useEffect(() => {
     async function fetchSavedCards() {
       try {
-        // Fetch the user's saved cards from your backend (you might need to send user authentication tokens here)
-        const apiUrl = 'http://localhost:3000/api/v1/my-cards'; // Update the URL with the correct endpoint
-        const response = await axios.get(apiUrl);
+        const apiUrl = 'http://localhost:3000/api/v1/cards/my-cards'; 
+        const response = await axios.get(apiUrl, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+          }
+        });
         setSavedCards(response.data);
       } catch (error) {
         console.error('Error fetching saved cards:', error);

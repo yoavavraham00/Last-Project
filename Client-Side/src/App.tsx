@@ -53,7 +53,7 @@ function App() {
   return (
    <>
    <div className={`app ${darkMode ? 'dark-mode' : 'light-mode'}`}>
-   <NavBarHeader key={isLoggedIn ? 'logged-in' : 'logged-out'} darkMode={darkMode} toggleDarkMode={toggleDarkMode} isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
+   <NavBarHeader key={isLoggedIn ? 'logged-in' : 'logged-out'} darkMode={darkMode} toggleDarkMode={toggleDarkMode} isLoggedIn={isLoggedIn} handleLogout={handleLogout} IsBusiness={isBusiness}/>
       <Routes>
         <Route path="/" element={
           <>

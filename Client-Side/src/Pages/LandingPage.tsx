@@ -23,7 +23,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ cards, isLoggedIn, isBusiness
 
     const saveCard = async (cardId) => {
       try {
-        const response = await axios.post('http://localhost:3000/api/v1/my-cards', { cardId }, {
+        const response = await axios.post('http://localhost:3000/api/v1/cards/my-cards', { cardId }, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
           }
