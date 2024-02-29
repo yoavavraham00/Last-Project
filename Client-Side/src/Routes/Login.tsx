@@ -25,6 +25,10 @@ const LoginForm = ({ isLoggedIn, setIsLoggedIn, setIsBusiness }) => {
 
     const handleLogin = async (event) => {
         event.preventDefault();
+        setEmail(''); // Clear the email field
+        setPassword(''); // Clear the password field
+        setError(''); // Reset any existing errors
+        setShowSuccessMessage(false); // Hide success message if visible
         try {
             const response = await axios.post('http://localhost:3000/api/v1/users/login', { email, password });
             localStorage.setItem('token', response.data.token);
@@ -36,39 +40,50 @@ const LoginForm = ({ isLoggedIn, setIsLoggedIn, setIsBusiness }) => {
             console.error(err);
         }
     };
+
+    const handleLogout = () => {
+        localStorage.removeItem('token'); // Remove the token from storage
+        setIsLoggedIn(false); // Update the login state
+        setIsBusiness(false); // Reset business state or any other related state
+        setEmail(''); // Clear the email field
+        setPassword(''); // Clear the password field
+        setError(''); // Clear any errors
+    };
     
     return (
         <div className={`login-container ${showSuccessMessage ? 'blur-active' : ''}`}>
             <div className={`login-form ${showSuccessMessage ? 'blur-active' : ''}`}>
-                {!showSuccessMessage && (
-                    <Form onSubmit={handleLogin}>
-                        <Form.Floating >
-                            <Form.Control
-                                id="floatingInputCustom"
-                                type="email"
-                                placeholder="name@example.com"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                required
-                            />
-                            <label htmlFor="floatingInputCustom">Email address</label>
-                        </Form.Floating>
-                        <Form.Floating>
-                            <Form.Control
-                                id="floatingPasswordCustom"
-                                type="password"
-                                placeholder="Password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                            />
-                            <label htmlFor="floatingPasswordCustom">Password</label>
-                        </Form.Floating>
-                        {error && <div className="error-message">{error}</div>}
-                        <Button variant="primary" type="submit" disabled={isLoggedIn}>
-                            Login
-                        </Button>
-                    </Form>
+                {!isLoggedIn ? (
+                    !showSuccessMessage && (
+                        <Form onSubmit={handleLogin}>
+                            <Form.Floating >
+                                <Form.Control
+                                    id="floatingInputCustom"
+                                    type="email"
+                                    placeholder="name@example.com"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    required
+                                />
+                                <label htmlFor="floatingInputCustom">Email address</label>
+                            </Form.Floating>
+                            <Form.Floating>
+                                <Form.Control
+                                    id="floatingPasswordCustom"
+                                    type="password"
+                                    placeholder="Password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    required
+                                />
+                                <label htmlFor="floatingPasswordCustom">Password</label>
+                            </Form.Floating>
+                            {error && <div className="error-message">{error}</div>}
+                            <Button variant="primary" type="submit">Login</Button>
+                        </Form>
+                    )
+                ) : (
+                    <Button variant="primary" onClick={handleLogout}>Logout</Button> // Show logout button when user is logged in
                 )}
             </div>
             {showSuccessMessage && (
